@@ -5,13 +5,15 @@ function App() {
   const [list, setList] = useState<string[]>([]);
 
   const handleDelete = (id: number) => {
-    setList((prev) => prev.filter((element, index) => index !== id));
+    console.log("id", id);
+    setList((prev) => prev.filter((_, index) => index !== id));
   };
   const handleReduct = (id: number, newText: string) => {
     setList((prev) =>
       prev.map((element, index) => (index === id ? newText : element))
     );
   };
+  console.log("list", list);
   return (
     <div
       style={{

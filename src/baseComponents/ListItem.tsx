@@ -36,6 +36,11 @@ export const ListItem: FC<ListItemProps> = memo(
       setIsReduct((prev) => !prev);
     };
 
+    const onDeleteClick = () => {
+      setIsReduct(false);
+      handleDelete(id);
+    };
+
     return (
       <div style={containerStyles}>
         <button onClick={onReductClick} style={deleteStyles}>
@@ -46,7 +51,7 @@ export const ListItem: FC<ListItemProps> = memo(
         ) : (
           <div>{text}</div>
         )}
-        <button onClick={() => handleDelete(id)} style={deleteStyles}>
+        <button onClick={onDeleteClick} style={deleteStyles}>
           Удалить
         </button>
       </div>
