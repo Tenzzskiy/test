@@ -5,15 +5,14 @@ import { Input } from "./Input";
 interface ListItemProps {
   text: string;
   id: number;
-  checked: boolean;
   handleDelete: (id: number) => void;
   handleReduct: (id: number, newText: string) => void;
 }
 export const ListItem: FC<ListItemProps> = memo(
-  ({ text, id, handleDelete, handleReduct, checked }) => {
+  ({ text, id, handleDelete, handleReduct }) => {
     const [isReduct, setIsReduct] = useState(false);
     const [inputValue, setInputValue] = useState(text);
-    const [isChecked, setIsChecked] = useState(checked);
+    const [isChecked, setIsChecked] = useState(false);
 
     const containerStyles = {
       display: "flex",
@@ -56,7 +55,7 @@ export const ListItem: FC<ListItemProps> = memo(
         ) : (
           <div>{text}</div>
         )}
-        
+
         <button onClick={onDeleteClick} style={deleteStyles}>
           Удалить
         </button>
@@ -66,7 +65,6 @@ export const ListItem: FC<ListItemProps> = memo(
         ) : (
           <span style={{ color: "red" }}>- Не выполнено</span>
         )}
-        
       </div>
     );
   }

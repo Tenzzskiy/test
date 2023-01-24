@@ -11,7 +11,7 @@ export const Form: FC<FormProps> = ({ setList }) => {
 
   const handleOnSubmit = (event: FormEvent) => {
     event.preventDefault();
-    setList((prev) => [...prev, { name: inputValue, done: false }]);
+    setList((prev) => [...prev, { name: inputValue }]);
   };
 
   return (

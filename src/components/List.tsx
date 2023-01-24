@@ -15,7 +15,6 @@ export const List: FC<ListProps> = memo(
           handleReduct={handleReduct}
           key={index}
           text={element.name}
-          checked={element.done}
           id={index}
           handleDelete={handleDelete}
         />
