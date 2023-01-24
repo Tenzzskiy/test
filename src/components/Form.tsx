@@ -1,10 +1,10 @@
 import React, { Dispatch, FC, FormEvent, SetStateAction } from "react";
 import { useState } from "react";
 import { Button, Input } from "../baseComponents";
-import { ListTypes } from "../types";
+import { ListItemProps } from "../types";
 
 interface FormProps {
-  setList: Dispatch<SetStateAction<ListTypes[]>>;
+  setList: Dispatch<SetStateAction<ListItemProps[]>>;
 }
 export const Form: FC<FormProps> = ({ setList }) => {
   const [inputValue, setInputValue] = useState("");

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Form, List } from "../components";
-import type { ListTypes } from "../types";
+import type { ListItemProps } from "../types";
 
 function App() {
-  const [list, setList] = useState<ListTypes[]>([]);
+  const [list, setList] = useState<ListItemProps[]>([]);
 
   const handleDelete = (id: number) => {
     setList((prev) => prev.filter((_, index) => index !== id));

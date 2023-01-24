@@ -1,3 +1,3 @@
-export interface ListTypes {
+export interface ListItemProps {
   name: string;
 }
