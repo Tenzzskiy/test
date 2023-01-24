@@ -1,16 +1,17 @@
 import React, { Dispatch, FC, FormEvent, SetStateAction } from "react";
 import { useState } from "react";
 import { Button, Input } from "../baseComponents";
+import { ListTypes } from "../types";
 
 interface FormProps {
-  setList: Dispatch<SetStateAction<string[]>>;
+  setList: Dispatch<SetStateAction<ListTypes[]>>;
 }
 export const Form: FC<FormProps> = ({ setList }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleOnSubmit = (event: FormEvent) => {
     event.preventDefault();
-    setList((prev) => [...prev, inputValue]);
+    setList((prev) => [...prev, { name: inputValue, done: false }]);
   };
 
   return (

@@ -1,8 +1,9 @@
 import React, { FC, memo } from "react";
 import { ListItem } from "../baseComponents/ListItem";
+import { ListTypes } from "../types";
 
 interface ListProps {
-  list: string[];
+  list: ListTypes[];
   handleDelete: (id: number) => void;
   handleReduct: (id: number, newText: string) => void;
 }
@@ -13,7 +14,8 @@ export const List: FC<ListProps> = memo(
         <ListItem
           handleReduct={handleReduct}
           key={index}
-          text={element}
+          text={element.name}
+          checked={element.done}
           id={index}
           handleDelete={handleDelete}
         />

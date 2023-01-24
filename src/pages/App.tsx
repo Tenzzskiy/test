@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { Form, List } from "../components";
+import type { ListTypes } from "../types";
 
 function App() {
-  const [list, setList] = useState<string[]>([]);
+  const [list, setList] = useState<ListTypes[]>([]);
 
   const handleDelete = (id: number) => {
-    console.log("id", id);
     setList((prev) => prev.filter((_, index) => index !== id));
   };
+
   const handleReduct = (id: number, newText: string) => {
     setList((prev) =>
-      prev.map((element, index) => (index === id ? newText : element))
+      prev.map((element, index) =>
+        index === id ? { ...element, name: newText } : element
+      )
     );
   };
-  console.log("list", list);
+
   return (
     <div
       style={{
