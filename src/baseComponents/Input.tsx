@@ -1,6 +1,9 @@
-import React, { FC } from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 
 interface InputProps {
-  name: string;
+  value: string;
+  onChange: Dispatch<SetStateAction<string>>;
 }
-export const Input: FC<InputProps> = ({ name }) => <input name={name} />;
+export const Input: FC<InputProps> = ({ value, onChange }) => (
+  <input value={value} onChange={(e) => onChange(e.target.value)} />
+);

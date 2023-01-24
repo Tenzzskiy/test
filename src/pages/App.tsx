@@ -7,7 +7,11 @@ function App() {
   const handleDelete = (id: number) => {
     setList((prev) => prev.filter((element, index) => index !== id));
   };
-
+  const handleReduct = (id: number, newText: string) => {
+    setList((prev) =>
+      prev.map((element, index) => (index === id ? newText : element))
+    );
+  };
   return (
     <div
       style={{
@@ -18,7 +22,11 @@ function App() {
       }}
     >
       <Form setList={setList} />
-      <List list={list} handleDelete={handleDelete} />
+      <List
+        list={list}
+        handleDelete={handleDelete}
+        handleReduct={handleReduct}
+      />
     </div>
   );
 }
